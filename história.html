@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/historia.css">
+    <title>Wayne André - Minha história</title>
+</head>
+<body>
+    <main>
+        <section>
+            <svg viewBox="0 0 32 32" class="continuar baixo" viewBox="0 0 32 32" aria-hidden="true" onclick="RolarPagina()">
+                <path d="M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z"/>
+            </svg>
+            <article id="parte1">
+                <!--Começo-->
+                <div>
+                    <img src="img/me.jpg" alt="foto de Wayne Rocha em um Parque">
+                    <h1>
+                        Conheça minha história sobre como eu estou me tornando um programador, descubra por quê segui essa area e como foi meu caminho até aqui
+                    </h1>
+                </div>
+            </article>
+            <article id="parte2">
+                <div class="media">
+                    <img src="" alt="">
+                </div>
+                <div class="historia">
+                    <h2>O começo</h2>
+                    <p>
+                        Desde de pequeno eu tenho interesse em TI, então quando eu tinha 12 anos meu pai me deu o livro <a href="https://img.clasf.com.br/2019/08/04/Manuteno-de-Computadores-e-redes-20190804064747.5355810015.jpg" target="_blank">"Introdução ao hardware & Manuteção de computadores"</a>. Depois de ler esse livro, eu quis me aprofundar nessa area, por meio de videos, livros e cursos. Tanto que pouco tempo depois eu já fazia manutenção de computadores e notebooks, ganhando uma pequena renda, e até já montei um PC personalizado para um fotógrafo.<br>
+                        Meu interesse por programação começou depois de eu ter feito um <a href="https://youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV" target="_blank">Curso de Lógica de Programação</a> e após isso, aos 13 anos, quando eu estava no 8º ano, eu entrei para um projeto de robotica que havia na escola. Mas eu não imaginava como esse projeto me impactaria de forma tão boa.
+                    </p>
+                </div>
+            </article>
+            <article id="parte3">
+                <div class="media">
+                    <img src="" alt="">
+                </div>
+                <div class="historia">
+                    <h2>Minha paixão</h2>
+                    <p>
+                        No final do 8º ano eu entrei em um <a href="http://roboticaceurosangela.blogspot.com/" target="_blank">projeto de robótica</a> que havia na minha escola, e o professor <a href="https://naescola.codeiot.org.br/relatos-pre/ventilador-com-controle-de-temperatura/" target="_blank">Paulo</a>, que é um professor nota 10 e também uma pessoa muito gente boa, 
+                        cuidava desse projeto.
+                        <br>Aprender IOT junto com aquelas pessoas tão legais que gostavam das mesmas coisas que eu era muito bom! Principalmente quando iamos a eventos(como a JAM, por exemplo). Fizemos vários projetos interessantes como um irrigador automatico por exemplo, Eram bons tempos... Essas experiencias abriram muito a minha mente e também me fizeram decidir que era essa area que eu queria seguir.
+                    </p>
+                </div>
+            </article>
+            <article id="parte4">
+                <!--Como eu estou hoje em dia-->
+                <div class="media">
+                    <img src="img/etec.jpg" alt="">
+                </div>
+                <div class="historia">
+                    <h2>Nos dias de hoje</h2>
+                    <p>
+                        Depois de terminar o 9ºano, tive que decidir para qual escola eu iria, e o que faria para me tornar um programador. A solução foi tentar entrar em uma etec, pois o cursos de desenvolvimento de sistemas era junto com o próprio ensino médio, e isso pouparia muito tempo de minha vida. <br>
+                        E após conseguir entrar na etec, sigo aprendendo <a href="https://youtube.com/playlist?list=PLHz_AreHm4dksnH2jVTIVNviIMBVYyFnH" target="_blank">Python</a> em paralelo junto com as próprias matéria na escola de desenvolvimento de sistemas<br>
+                        Este foi meu caminho para me tornar um programador.
+                    </p>
+                </div>
+                <button id="pagina_principal" class="oculta" onclick="paginaInicial()">Página principal</button>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Direitos reservado a Wayne André&copy;</p>
+        <div>
+            <a href="https://github.com/WayneRocha" target="_blanck">
+                <img src="img/github_logo.png" alt="Meu Github" title="Meu Github">
+            </a>
+            <a href="https://www.youtube.com/channel/UCXojl1lF6TLP0qM8B1eCh2Q" target="_blanck">
+                <img src="img/youtube_logo.png" alt="Meu canal no youtube. RockTech" title="Meu canal no youtube">
+            </a>
+        </div>
+    </footer>
+    <script>
+        window.onscroll = () => localScroll();
+
+        let numero_pagina = 1;
+        let altura_pagina = window.innerHeight;
+
+        function RolarPagina(){
+            let final_pagina = numero_pagina == document.getElementsByTagName('article').length;
+            
+            if (final_pagina){
+                numero_pagina = 0;
+                mostrarBotao();
+                mudarSeta('cima');
+            }
+            numero_pagina++;
+            window.scrollTo(0, altura_pagina * numero_pagina);
+        }
+        function localScroll(){
+            let posicaoScroll = window.scrollY;
+            let alturaTela = innerHeight;
+            let sessoes = document.getElementsByTagName('article')
+            let doistercos_altura_tela = ((alturaTela / 3) * 2);
+            for (let i = 0; i <= sessoes.length - 1; i++){
+                console.log(`Sessão ${i}
+                x = ${sessoes[i].getBoundingClientRect().x}
+                y = ${sessoes[i].getBoundingClientRect().y}`);
+            }
+            /*
+            for (let i = 0; i <= qtdPaginas; i++){
+                if ((posicaoScroll >= doistercos_altura_tela * (i - 1)) && posicaoScroll <= doistercos_altura_tela * i){
+                    if ((i - 1) != (-1)){
+                        numero_pagina = (i - 1);
+                    }else{
+                        numero_pagina = 0;
+                    }
+                    if (i >= 0 && i !== qtdPaginas){
+                        mudarSeta('baixo');
+                    }else{
+                        console.log('localscroll - seta para cima') 
+                        mudarSeta('cima');
+                        mostrarBotao();
+                    }
+                }
+            }
+            */
+        }
+        function mudarSeta(direcao){
+            if (direcao != null){
+                let seta = document.getElementsByClassName('continuar')[0];
+
+                if (direcao === 'cima'){
+                    seta.classList.remove('baixo');
+                    seta.classList.add('cima');
+                }
+                else if (direcao === 'baixo'){
+                    seta.classList.remove('cima');
+                    seta.classList.add('baixo');
+                }
+            }
+            return;
+        }
+        function mostrarBotao(){
+            let delay_botao = 5000;
+
+            setTimeout(function(){
+                document.getElementById('pagina_principal').classList.replace('oculta', 'visivel');
+            }, delay_botao);
+            return;
+        }
+        function paginaInicial(){
+            window.location.href = 'index.html';
+        }
+        function inicioPagina(){
+            window.scrollTo(0, 0);
+            return;
+        }
+        
+    </script>
+</body>
+</html>'

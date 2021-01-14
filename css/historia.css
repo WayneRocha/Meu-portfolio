@@ -1,0 +1,242 @@
+@charset "UTF-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,300&display=swap');
+
+/*geral*/
+
+:root{
+    --corfundo-parte1: #BF5102;
+    --corfundo-parte2: #92BF0B;
+    --corfundo-parte3: #0AB1C1;
+    --corfundo-parte4: #5E1A7D;
+    --corfundo-botao: #14757D;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+}
+html, body, article {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+body{
+    background-color: #1b1b1b;
+}
+
+/*pagina principal*/
+
+a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-bottom: .05em solid black;
+    transition: border-bottom .1s ease-in-out;
+}
+a:hover {
+    border-bottom: .2em solid black;
+}
+
+article{
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    height: min-content;
+    padding-bottom: 5vmax;
+}
+#parte1 {
+    background-color: var(--corfundo-parte1);
+}
+#parte1 div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10vmax;
+    padding-top: 5vmax;
+}
+#parte1 div h1{
+    font-family: poppins;
+    font-size: 2.5em;
+    color: white;
+}
+#parte1 div img{
+    border-radius: 50%;
+    width: 40vmin;
+    margin-right: 5vmin;
+}
+#parte2{
+    background-color: var(--corfundo-parte2);
+}
+#parte3{
+    background-color: var(--corfundo-parte3);
+}
+#parte4{
+    background-color: var(--corfundo-parte4);
+    color: white;
+}
+
+.media{
+    width: 50vw;
+}
+.media img{
+    max-width: 50vw;
+    height: 50vh;
+}
+#pagina_principal {
+    font-family: poppins;
+    background-color: var(--corfundo-botao);
+    position: relative;
+    bottom: -80vh;
+    left: -80vw;
+    width: 25em;
+    height: min-content;
+    padding: .5%;
+    padding-inline: 2%;
+    border: none;
+    border-radius: 5px;
+    transition: .2s;
+}
+#pagina_principal:hover {
+    filter: saturate(2);
+}
+#pagina_principal.visivel {
+    opacity: 100%;
+}
+#pagina_principal.oculta {
+    opacity: 100%;
+}
+
+.historia {
+    padding: 5vmin;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+/*botão de rolagem*/
+
+.continuar{
+    position: fixed;
+    bottom: 5vh;
+    right: 45vw;
+    cursor: pointer;
+    width: 5vmax;
+}
+.continuar path{
+    animation: ease nuvem 2s infinite;
+}
+.continuar.cima {
+    transform: rotate(-180deg);
+    animation: ease girarCima .5s;
+}
+.continuar.baixo {
+    transform: rotate(0deg);
+    animation: ease girarBaixo .5s;
+}
+
+/*rodapé*/
+
+footer {
+    justify-content: center;
+    z-index: 1;
+    width: 100vw;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    background-color: #1b1b1b;
+    color: white;
+    font-family: arial, sans-serif;
+    margin: 0px;
+}
+footer p {
+    margin-top: 3vh;
+}
+footer img {
+    margin-top: 2vh;
+    width: 32px;
+    height: 32px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    cursor: pointer;
+    transition: ease-in-out .2s;
+    filter: invert();
+}
+footer img:hover {
+    transform: scale(1.1);
+}
+
+/*Responsividade*/
+
+@media(max-width:750px){
+    #parte1 div{
+        flex-direction: column;
+    }
+    #parte1 div h1{
+        font-size: 1px;
+        margin-top: 2vmax;
+    }
+    #parte1 div img{
+        width: 40vmin;
+        margin-right: initial;
+        
+    }
+    footer {
+        justify-content: center;
+        z-index: 1;
+        width: 100vw;
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-family: arial, sans-serif;
+    }
+    footer div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+    }
+    footer a {
+        margin-inline: 5vw;
+    }
+    footer p {
+        margin-top: 2vh;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.2em;
+        margin-bottom: 2vh;
+    }
+    #parte1 div h1{
+        font-size: 1.5em;
+    }
+}
+
+/*Animações*/
+
+@keyframes nuvem {
+    0.0%{
+        opacity: .3;
+    }
+    100%{
+        opacity: .3;
+    }
+    50%{
+        opacity: 1;
+    }
+}
+@keyframes girarCima {
+    0.0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-180deg);
+    }
+}
+@keyframes girarBaixo {
+    0.0%{
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
