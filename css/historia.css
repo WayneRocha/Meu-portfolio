@@ -101,6 +101,8 @@ article{
 /*botão para voltar*/
 
 #pagina_principal {
+    font-family: poppins;
+    font-weight: 600;
     margin-top: 10vh;
     background: var(--cor-padrao-botao);
     color: #1d1d1d;
