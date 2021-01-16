@@ -8,7 +8,13 @@
     --corfundo-parte2: #92BF0B;
     --corfundo-parte3: #0AB1C1;
     --corfundo-parte4: #5E1A7D;
+
     --corfundo-botao: #14757D;
+
+    --cor-padrao-botao: #20C980;
+    --cor-hover-botao: #C93920;
+    --cor-hover-botao-shadow: #a1301d;
+    
 }
 * {
     margin: 0px;
@@ -25,16 +31,18 @@ body{
 
 /*pagina principal*/
 
-a {
+main a {
     text-decoration: none;
     color: white;
     cursor: pointer;
     border-bottom: .05em solid black;
     transition: border-bottom .1s ease-in-out;
 }
-a:hover {
+main a:hover {
     border-bottom: .2em solid black;
 }
+
+/*sessões*/
 
 article{
     display: flex;
@@ -73,96 +81,76 @@ article{
 #parte4{
     background-color: var(--corfundo-parte4);
     color: white;
+    height: fit-content;
 }
-
-.media{
-    width: 50vw;
-}
-.media img{
-    max-width: 50vw;
-    height: 50vh;
-}
-#pagina_principal {
-    font-family: poppins;
-    background-color: var(--corfundo-botao);
-    position: relative;
-    bottom: -80vh;
-    left: -80vw;
-    width: 25em;
-    height: min-content;
-    padding: .5%;
-    padding-inline: 2%;
-    border: none;
-    border-radius: 5px;
-    transition: .2s;
-}
-#pagina_principal:hover {
-    filter: saturate(2);
-}
-#pagina_principal.visivel {
-    opacity: 100%;
-}
-#pagina_principal.oculta {
-    opacity: 100%;
-}
-
 .historia {
+    width: max-content;
     padding: 5vmin;
     font-family: poppins;
     font-weight: 300;
     font-size: 1.2em;
 }
+.media{
+    width: 40vw;
+}
+.media img{
+    width: 40vw;
+    height: auto;
+}
+
+/*botão para voltar*/
+
+#pagina_principal {
+    margin-top: 10vh;
+    background: var(--cor-padrao-botao);
+    color: #1d1d1d;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 1.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    min-width: 250px;
+}
+#pagina_principal::after {
+        content: " ⬅";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 400;
+        position: absolute;
+        left: 85%;
+        top: 54%;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+    }
+
+#pagina_principal:hover {
+    background: var(--cor-hover-botao);
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px var(--cor-hover-botao-shadow);
+    padding: 1.5rem 3rem 1.5rem 1.5rem;
+    color: #ffffff;
+}
+#pagina_principal:hover::after {
+    opacity: 1;
+    transition: all 0.5s;
+    color: #ffffff;
+}
 
 /*botão de rolagem*/
 
-.continuar{
+#seta{
     position: fixed;
     bottom: 5vh;
     right: 45vw;
-    cursor: pointer;
     width: 5vmax;
 }
-.continuar path{
+#seta path{
     animation: ease nuvem 2s infinite;
-}
-.continuar.cima {
-    transform: rotate(-180deg);
-    animation: ease girarCima .5s;
-}
-.continuar.baixo {
-    transform: rotate(0deg);
-    animation: ease girarBaixo .5s;
-}
-
-/*rodapé*/
-
-footer {
-    justify-content: center;
-    z-index: 1;
-    width: 100vw;
-    height: 10%;
-    display: flex;
-    flex-direction: row;
-    background-color: #1b1b1b;
-    color: white;
-    font-family: arial, sans-serif;
-    margin: 0px;
-}
-footer p {
-    margin-top: 3vh;
-}
-footer img {
-    margin-top: 2vh;
-    width: 32px;
-    height: 32px;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    cursor: pointer;
-    transition: ease-in-out .2s;
-    filter: invert();
-}
-footer img:hover {
-    transform: scale(1.1);
 }
 
 /*Responsividade*/
@@ -178,36 +166,23 @@ footer img:hover {
     #parte1 div img{
         width: 40vmin;
         margin-right: initial;
-        
-    }
-    footer {
-        justify-content: center;
-        z-index: 1;
-        width: 100vw;
-        height: 20%;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        font-family: arial, sans-serif;
-    }
-    footer div {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center; 
-    }
-    footer a {
-        margin-inline: 5vw;
-    }
-    footer p {
-        margin-top: 2vh;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 1.2em;
-        margin-bottom: 2vh;
     }
     #parte1 div h1{
         font-size: 1.5em;
+    }
+    article:not(#parte1){
+        display: flex;
+        flex-direction: column;
+    }
+    .historia{
+        width: 90vw;
+    }
+    .media{
+        width: 100vw;
+    }
+    .media img{
+        width: 100vw;
+        height: auto;
     }
 }
 
