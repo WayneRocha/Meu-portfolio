@@ -1,87 +1,90 @@
 @charset "UTF-8";
-@font-face {
-    font-family: fonte-padrao;
-    src: url(../fonts/8-bit-hud.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,300&display=swap');
+
 html, body {
     margin: 0px;
     padding: 0px;
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 main {
-    background-image: url(../img/bg.jpg);
-    background-attachment: fixed;
+    background-image: url(../img/home_bg.jpg);
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 100vh;
     width: 100vw;
+    font-family: poppins;
+    background-color: white;
 }
 
 a { text-decoration: none; }
 
 #titulo {
-    margin-left: 10vw;
+    margin-left: 5vw;
+    padding-inline-start: 2vw;
+    padding-inline-end: 2vw;
     font-size: 1.8vw;
+    width: fit-content;
     margin-top: 5vh;
-    color: white;
-    font-family: fonte-padrao;
-    text-shadow: rgb(49, 49, 49) 4px 4px;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    animation: apear 1s ease-out 0s normal none;
 }
-#opcoes {
-    width: 100vw;
-    position: relative;
-    bottom: -20vh;
-    display: flex;
+#texto_titulo{
+    color: white;
+    text-shadow: rgb(0, 0, 0) 4px 4px;
+}
+#menu {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    width: 50vw;
+    height: 43vw;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    padding: 1vw;
     justify-content: center;
+    align-items: center;
     user-select: none;
+    animation: apear 1s ease-out 0s normal none;
+}
+nav {
+    margin-inline-start: 1vw;
 }
 ul {
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
+    margin: 0px;
+    display: flex;
     flex-direction: column;
-    grid-template-columns: repeat(3, auto);
-    column-gap: 5vw;
-    padding-left: 0px;
     list-style: none;
 }
-.item {
-    width: 20vw;
-    padding: 5%;
-    text-align: center;
-    animation: flutuar 2s ease 0s infinite normal none;
-    color: white;
-    font-family: fonte-padrao;
-    text-shadow: rgb(49, 49, 49) 2px 2px;
-    font-size: .6em;
-    transition: ease-out .5s;
+li{
+    margin-block: 2vh;
 }
-.item:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    box-shadow: rgba(0, 0, 0, 0.2) 10px 10px;
+button {
+    outline: none;
+    border: white solid 2px;
+    background-color: transparent;
+    width: 40vw;
+    height: 4.37vw;
+    border-radius: 5px;
+    transition: ease-in-out .2s;
 }
-@keyframes flutuar {
-    0.0%{
-        transform: scale(1.0) translate(0px,0px) rotate(0deg);
-    }
-    30.3%{
-        transform: scale(1.01) translate(0,-2px) rotate(1deg);
-    }
-    61.1%{
-        transform: scale(1.01) translate(0,-2px) rotate(0deg);
-    }
-    79.8%{
-        transform: scale(1.0) translate(0px,0px) rotate(-0.5deg);
-    }
-} 
-.item h2 {
-    font-size: .8em;
+button:hover {
+    background-color: white;
+    cursor: pointer;
+}
+button h2{
+    font-size: 1.2em;
     color: white;
-    font-family: fonte-padrao;
+    transition: ease-in-out .2s;
+    text-shadow: rgb(0, 0, 0) 2px 2px;
+}
+button:hover h2{
+    color: black;
+    text-shadow: rgb(0, 0, 0) 0px 0px;
 }
 @media(max-width:750px){
     main{
@@ -117,11 +120,19 @@ ul {
         background-color: rgba(0, 0, 0, 0.0);
         box-shadow: rgba(0, 0, 0, 0.0) 0px 0px;
     }
-    img {
-        width: 40vw;
-    }
+}
 @media(max-width:500px){
-    #titulo {
-        font-size: 2vw;
+    
+}
+
+@keyframes apear {
+    0.0%{
+        transform: translate(0px, 2vh);
+        opacity: 0;
+    }
+    100%{
+        transform-origin: -15%;
+        opacity: 1;
+        transform: translate(0px, 0vh);
     }
 }

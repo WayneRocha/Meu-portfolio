@@ -18,6 +18,9 @@ footer p {
     margin-top: 3vh;
     font-family: poppins;
 }
+footer div {
+    margin-bottom: 2vh;
+}
 footer svg {
     margin-top: 2vh;
     width: 32px;
