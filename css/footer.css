@@ -69,3 +69,8 @@ footer svg:hover {
         margin-bottom: 2vh;
     }
 }
+@media (max-width:375px){
+    footer p {
+        font-size: 1em;
+    }
+}
