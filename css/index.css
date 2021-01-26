@@ -4,7 +4,7 @@
 html, body {
     margin: 0px;
     padding: 0px;
-    height: 100vh;
+    height: min-content;
     width: 100vw;
     overflow-x: hidden;
 }
@@ -27,8 +27,8 @@ main a { text-decoration: none; }
 
 #titulo {
     margin-left: 5vw;
-    padding-inline-start: 2vw;
-    padding-inline-end: 2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
     width: fit-content;
     margin-top: 5vh;
     background-color: rgba(0, 0, 0, .5);
@@ -44,9 +44,11 @@ main a { text-decoration: none; }
     background-color: rgba(0, 0, 0, .5);
     border-radius: 10px;
     width: 50vw;
-    height: 43vw;
+    min-height: 43vw;
+    height: min-content;
     margin-left: 5vw;
     margin-top: 2vh;
+    margin-bottom: 2vh;
     padding: 1vw;
     justify-content: center;
     align-items: center;
@@ -54,7 +56,8 @@ main a { text-decoration: none; }
     animation: apear 1s ease-out 0s normal none;
 }
 nav {
-    margin-inline-start: 1vw;
+    margin-right: auto;
+    margin-left: auto;
 }
 ul {
     margin: 0px;
@@ -63,14 +66,14 @@ ul {
     list-style: none;
 }
 li{
-    margin-block: 2vh;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 button {
     outline: none;
     border: white solid 2px;
     background-color: transparent;
     width: 40vw;
-    height: 4.37vw;
     border-radius: 5px;
     transition: ease-in-out .2s;
 }
@@ -79,7 +82,6 @@ button:hover {
     cursor: pointer;
 }
 button h2{
-    font-size: 1.2em;
     color: white;
     transition: ease-in-out .2s;
     text-shadow: rgb(0, 0, 0) 2px 2px;
@@ -88,10 +90,10 @@ button:hover h2{
     color: black;
     text-shadow: rgb(0, 0, 0) 0px 0px;
 }
-@media(max-width:750px){
+@media(orientation: portrait){
     main {
         background-size: cover;
-        background-attachment: fixed;
+        background-attachment: scroll;
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
@@ -130,7 +132,7 @@ button:hover h2{
         color: white;
         text-shadow: rgb(0, 0, 0) 0px 0px;
         font-size: 6vw;
-    }    
+    }
     nav {
         margin-inline-start: 0vw;
     }
@@ -143,7 +145,6 @@ button:hover h2{
     }
     li{
         text-align: center;
-        margin-block: 2vh;
         width: 100%;
     }
     button {
